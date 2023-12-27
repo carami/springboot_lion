@@ -15,8 +15,15 @@ public class Player {
         this.dice = dice;
     }
 
+    public Player(){}
+
+
     public void setDice(Dice dice){
         this.dice = dice;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void play(){

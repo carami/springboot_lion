@@ -7,7 +7,12 @@ public class Game {
 
     //DI
 
-    public Game(List<Player> players) {
+//    public Game(List<Player> players) {
+//        this.players = players;
+//    }
+
+
+    public void setPlayers(List<Player> players) {
         this.players = players;
     }
 
