@@ -1,12 +1,10 @@
 package com.example.iocexam.repository;
 
 import com.example.iocexam.domain.User;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
-public class UserDaoImpl implements UserDao{
+
+public class UserDaoCaramiImpl implements UserDao{
     @Override
     public User getUser(String email) {
         return null;
@@ -19,6 +17,6 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void addUser(User user) {
-        System.out.println(user + "정보가 잘 저장되었습니다.");
+        System.out.println(user + "정보가 caramiDao를 이용해서 잘 저장되었습니다.");
     }
 }
