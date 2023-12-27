@@ -6,6 +6,11 @@ public class Player {
 
     //DI  (의존성 주입..)  --  1. 필드기반주입, 2. 생성자기반 주입, 3 설정자기반 주입
 
+    public Player(String name, Dice dice) {
+        this.name = name;
+        this.dice = dice;
+    }
+
     public Player(Dice dice){
         this.dice = dice;
     }

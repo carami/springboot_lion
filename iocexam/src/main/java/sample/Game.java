@@ -7,6 +7,10 @@ public class Game {
 
     //DI
 
+    public Game(List<Player> players) {
+        this.players = players;
+    }
+
     public void play(){
         for(Player player : players){
             player.play();
