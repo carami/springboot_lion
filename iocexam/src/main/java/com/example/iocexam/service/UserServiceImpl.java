@@ -2,6 +2,7 @@ package com.example.iocexam.service;
 
 import com.example.iocexam.domain.User;
 import com.example.iocexam.repository.UserDao;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
-    public UserServiceImpl(UserDao userDao) {
+    public UserServiceImpl(@Qualifier("userDaoCaramiImpl") UserDao userDao) {
         this.userDao = userDao;
     }
 

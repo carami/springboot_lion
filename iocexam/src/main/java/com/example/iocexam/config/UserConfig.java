@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-//@ComponentScan(basePackages = "com.example.iocexam")
+@Configuration
+@ComponentScan(basePackages = "com.example.iocexam")
 public class UserConfig {
 //    @Bean
 //    public UserDao userDao(){

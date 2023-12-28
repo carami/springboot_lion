@@ -1,9 +1,10 @@
 package com.example.iocexam.repository;
 
 import com.example.iocexam.domain.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class UserDaoCaramiImpl implements UserDao{
     @Override
     public User getUser(String email) {
