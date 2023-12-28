@@ -22,4 +22,12 @@ public class MemberService {
         return memberRepository.getMembers();
     }
 
+    public Member getMember(String id){
+        return memberRepository.getMember(id);
+    }
+
+    public void updateMember(Member member){
+        memberRepository.updateMember(member);
+    }
+
 }

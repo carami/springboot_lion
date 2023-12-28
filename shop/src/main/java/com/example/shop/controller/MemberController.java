@@ -36,5 +36,17 @@ public class MemberController {
         return "memberList";
     }
 
+    @GetMapping("/update")
+    public String updateForm(@RequestParam String id, Model model){
+        Member member = memberService.getMember(id);
+        model.addAttribute("member", member);
+        return "memberUpdateForm";
+    }
 
+    @PostMapping("/update")
+    public String update(@ModelAttribute Member member){
+
+
+        return "redirect:/member/list";
+    }
 }

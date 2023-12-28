@@ -31,4 +31,12 @@ public class MemberRepository {
     public List<Member> getMembers(){
         return memberRepo.values().stream().toList();
     }
+
+    public Member getMember(String id){
+        return memberRepo.get(id);
+    }
+
+    public void updateMember(Member member){
+        memberRepo.put(member.getId(),member);
+    }
 }
