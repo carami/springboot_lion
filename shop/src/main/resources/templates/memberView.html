@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>회원정보보기</h1>
-이름 : <span th:text="${aa}" ></span>
+이름 : <span th:text="${member.name}" ></span>
+아이디 : <span th:text="${member.id}" ></span>
+비밀번호 : <span th:text="${member.getPassword}" ></span>
+이메일 : <span th:text="${member.email}" ></span>
+전화번호 : <span th:text="${member.phone}" ></span>
 </body>
 </html>
