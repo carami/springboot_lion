@@ -50,4 +50,10 @@ public class MemberController {
 
         return "redirect:/member/list";
     }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam String id){
+        memberService.deleteMember(id);
+        return "redirect:/member/list";
+    }
 }

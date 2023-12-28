@@ -39,4 +39,8 @@ public class MemberRepository {
     public void updateMember(Member member){
         memberRepo.put(member.getId(),member);
     }
+
+    public void deleteMember(String id){
+        memberRepo.remove(id);
+    }
 }

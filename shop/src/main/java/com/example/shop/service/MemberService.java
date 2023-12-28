@@ -30,4 +30,8 @@ public class MemberService {
         memberRepository.updateMember(member);
     }
 
+    public void deleteMember(String id){
+        memberRepository.deleteMember(id);
+    }
+
 }
