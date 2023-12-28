@@ -24,7 +24,8 @@ public class MemberController {
     public String add(@ModelAttribute Member member, Model model){
         memberService.joinMember(member);
         model.addAttribute("member", member);
-        return "memberView";
+//        return "memberView";
+        return "redirect:/member/list";
     }
 
     @GetMapping("/list")
@@ -45,7 +46,7 @@ public class MemberController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute Member member){
-
+        memberService.updateMember(member);
 
         return "redirect:/member/list";
     }
