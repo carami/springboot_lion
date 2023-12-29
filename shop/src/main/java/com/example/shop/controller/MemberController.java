@@ -21,9 +21,9 @@ public class MemberController {
     }
 
     @PostMapping("/add")
-    public String add(@ModelAttribute Member member, Model model){
+    public String add(@ModelAttribute Member member /*, Model model*/){
         memberService.joinMember(member);
-        model.addAttribute("member", member);
+//        model.addAttribute("member", member);
 //        return "memberView";
         return "redirect:/member/list";
     }
