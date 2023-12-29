@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>ToDo List</title>
+    <link th:href="@{/css/todo.css}" rel="stylesheet">
 </head>
 <body>
+<div class="todo-container">
     <h1>ToDo List</h1>
 
-    <form action="/todo/add" method="post">
-        <input type="text" name="content" placeholder="할일을 입력하세요." />
-        <button  type="submit">추가</button>
+    <form action="/todo/add" method="post" class="add-todo-form">
+        <input type="text" name="content" placeholder="할일을 입력하세요."  class="add-todo-input"/>
+        <button  type="submit" class="add-todo-button">추가</button>
     </form>
 
     <ul>
         <li th:each="todo : ${todos}">
             <a th:href="@{/todo/update(id=${todo.id})}">
-            <span th:text="${todo.content}"></span> </a>
+            <span th:text="${todo.content}" th:class="${todo.done}?'checked':''"></span> </a>
             <span th:text="${todo.done} ? '완료':'진행중...'"></span>
             <a th:href="@{/todo/delete(id=${todo.id})}">
-                <span>X</span>
+                <span class="delete">X</span>
             </a>
         </li>
     </ul>
-
+</div>
+<!--<script>-->
+<!--    const input = document.querySelector(".add-todo-input");-->
+<!--    input.focus();-->
+<!--</script>-->
+<script type="text/javascript" th:src="@{/js/todo.js}" ></script>
 </body>
 </html>
