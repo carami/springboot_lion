@@ -20,10 +20,17 @@ public class TodoApplication implements CommandLineRunner {
 	TodoDao todoDao;
 	@Override
 	public void run(String... args) throws Exception {
-		List<Todo> todos =  todoDao.findAll();
-		System.out.println(todos.size());
-		for(Todo todo : todos){
-			System.out.println(todo);
-		}
+//		List<Todo> todos =  todoDao.findAll();
+//		System.out.println(todos.size());
+//		for(Todo todo : todos){
+//			System.out.println(todo);
+//		}
+
+//		todoDao.save("todo만들기!!");
+		Todo todo = new Todo();
+		todo.setId(1L);
+		todo.setDone(true);
+//		todoDao.update(todo);
+		todoDao.delete(1L);
 	}
 }

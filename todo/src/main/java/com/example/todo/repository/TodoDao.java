@@ -49,4 +49,67 @@ public class TodoDao {
 
         return todos;
     }
+
+    public void save(String content){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String sql = "INSERT INTO todos (todo, done) VALUES (?,false)";
+
+        try{
+            conn = DBUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,content);
+
+            int resutlCount = ps.executeUpdate();
+
+            System.out.println(resutlCount);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(conn,ps);
+        }
+
+    }
+
+    public void update(Todo todo){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String sql = "UPDATE todos SET done=? WHERE id=?";
+
+        try{
+            conn = DBUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setBoolean(1,todo.isDone());
+            ps.setLong(2, todo.getId());
+
+            ps.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(conn,ps);
+        }
+
+    }
+
+    public void delete(Long id){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String sql = "DELETE FROM todos WHERE id = ?";
+        try{
+            conn = DBUtil.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setLong(1, id);
+
+            ps.executeUpdate();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(conn,ps);
+        }
+    }
+
+    
 }
