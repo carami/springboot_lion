@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+</head>
+<body>
+    <h1>ToDo List</h1>
+
+    <form action="/todo/add" method="post">
+        <input type="text" name="content" placeholder="할일을 입력하세요." />
+        <button  type="submit">추가</button>
+    </form>
+
+    <ul>
+        <li th:each="todo : ${todos}">
+            <a th:href="@{/todo/update(id=${todo.id})}">
+            <span th:text="${todo.content}"></span> </a>
+            <span th:text="${todo.done} ? '완료':'진행중...'"></span>
+            <a th:href="@{/todo/delete(id=${todo.id})}">
+                <span>X</span>
+            </a>
+        </li>
+    </ul>
+
+</body>
+</html>
