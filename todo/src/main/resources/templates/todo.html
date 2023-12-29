@@ -7,11 +7,12 @@
 </head>
 <body>
 <div class="todo-container">
-    <h1>ToDo List</h1>
+<!--    <h1>ToDo List</h1>-->
+    <h1 th:text="#{todo.title}"></h1>
 
     <form action="/todo/add" method="post" class="add-todo-form">
         <input type="text" name="content" placeholder="할일을 입력하세요."  class="add-todo-input"/>
-        <button  type="submit" class="add-todo-button">추가</button>
+        <button  type="submit" class="add-todo-button"><span th:text="#{todo.input.btn}"></span></button>
     </form>
 
     <ul>

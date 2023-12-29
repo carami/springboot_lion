@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"   xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/}" th:object="${person}"
+      method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" name="name"/></td>
+            <td class='red' th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+                Error</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}" /></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}" class='red'>Age
+                Error</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
