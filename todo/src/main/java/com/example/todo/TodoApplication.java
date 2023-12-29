@@ -31,6 +31,7 @@ public class TodoApplication implements CommandLineRunner {
 		todo.setId(1L);
 		todo.setDone(true);
 //		todoDao.update(todo);
-		todoDao.delete(1L);
+//		todoDao.delete(1L);
+		System.out.println(todoDao.findById(2L));
 	}
 }

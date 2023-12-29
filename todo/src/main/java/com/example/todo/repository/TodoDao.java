@@ -3,6 +3,7 @@ package com.example.todo.repository;
 import com.example.todo.domain.Todo;
 import org.springframework.stereotype.Repository;
 
+import java.awt.image.DataBufferUShort;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -111,5 +112,32 @@ public class TodoDao {
         }
     }
 
-    
+    public Todo findById(Long id){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Todo todo = null;
+        try{
+            conn = DBUtil.getConnection();
+            ps = conn.prepareStatement("SELECT id,todo,done FROM todos WHERE id=?");
+            ps.setLong(1,id);
+
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                todo = new Todo();
+                todo.setId(rs.getLong("id"));
+                todo.setContent(rs.getString("todo"));
+                todo.setDone(rs.getBoolean("done"));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(conn,ps,rs);
+        }
+
+        return todo;
+    }
+
 }
